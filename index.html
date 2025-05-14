@@ -1,0 +1,3029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Letter to my crush 💍</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+    
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #ffe6eb 0%, #fff5f7 50%, #f8e1ff 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      color: #c2185b;
+      margin-top: 30px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+      animation: heartbeat 1.5s infinite alternate ease-in-out;
+    }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.05); }
+    }
+
+    .input-area {
+      text-align: center;
+      margin-top: 20px;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+    }
+
+    input {
+      padding: 12px 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      width: 200px;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #e91e63;
+      box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      background: linear-gradient(to right, #e91e63, #c2185b);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      margin-left: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(194, 24, 91, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(194, 24, 91, 0.4);
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    .message {
+      margin-top: 12px;
+      text-align: center;
+      color: #d81b60;
+      font-weight: bold;
+      height: 20px;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .message.show {
+      opacity: 1;
+      pointer-events: auto;
+      animation: pulse 1.5s infinite;
+    }
+    .message.error {
+      color: #e53935;
+      animation: fadeIn 0.4s, pulse 1.5s infinite;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    .input-area.shake {
+      animation: shake 0.5s;
+    }
+    @keyframes shake {
+      0% { transform: translateX(0);}
+      20% { transform: translateX(-8px);}
+      40% { transform: translateX(8px);}
+      60% { transform: translateX(-8px);}
+      80% { transform: translateX(8px);}
+      100% { transform: translateX(0);}
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .envelope-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 140px;
+  perspective: 1200px;
+  padding-bottom: 40px;
+  animation: envelopeFloat 4s ease-in-out infinite;
+}
+
+@keyframes envelopeFloat {
+  0%, 100% { transform: translateY(0);}
+  50% { transform: translateY(18px);}
+}
+
+.envelope {
+  position: relative;
+  width: 350px;
+  height: 220px;
+  background: linear-gradient(145deg, #f06292 0%, #ec407a 100%);
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18), 0 0 30px #ffb6c1;
+  overflow: visible;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+  border: 3px solid #fff0f6;
+  animation: envelopeGlow 2.5s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+@keyframes envelopeGlow {
+  0% { box-shadow: 0 20px 40px rgba(0,0,0,0.18), 0 0 30px #ffb6c1; }
+  100% { box-shadow: 0 30px 60px rgba(0,0,0,0.22), 0 0 60px #ff69b4; }
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 110px;
+  background: linear-gradient(to bottom, #ec407a, #d81b60);
+  transform-origin: top;
+  transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 3;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+.opened .flap {
+  animation: flapBounce 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: rotateX(-180deg);
+}
+
+@keyframes flapBounce {
+  0% { transform: rotateX(0); }
+  70% { transform: rotateX(-200deg);}
+  85% { transform: rotateX(-170deg);}
+  100% { transform: rotateX(-180deg);}
+}
+
+.letter {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  background: #fffdf9;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.5) translateY(80px) rotate(-6deg);
+  transition:
+    opacity 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+    transform 1.1s cubic-bezier(.68,-0.55,.27,1.55),
+    z-index 0s linear 1.1s;
+  font-family: 'Dancing Script', cursive;
+  color: #4a2626;
+  line-height: 1.6;
+  z-index: 20;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(255, 105, 180, 0.18), 0 0 40px #ffe6eb;
+  background-image: 
+    linear-gradient(90deg, rgba(200,200,200,0.1) 1px, transparent 1px),
+    linear-gradient(rgba(200,200,200,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.opened .letter {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1.08) translateY(-220px) rotate(0deg);
+  z-index: 5;
+  transition:
+    opacity 0.5s cubic-bezier(.68,-0.55,.27,1.55),
+    transform 1.1s cubic-bezier(.68,-0.55,.27,1.55),
+    z-index 0s;
+  animation: letterFloat 3s ease-in-out infinite 1.1s, letterGlow 2.5s ease-in-out infinite alternate;
+  box-shadow: 0 12px 40px #ffb6c1, 0 0 60px #fff0f6;
+}
+
+@keyframes letterFloat {
+  0%, 100% { transform: scale(1.08) translateY(-140px) rotate(0deg);}
+  50% { transform: scale(1.12) translateY(-150px) rotate(2deg);}
+}
+
+@keyframes letterGlow {
+  0% { box-shadow: 0 12px 40px #ffb6c1, 0 0 60px #fff0f6; }
+  100% { box-shadow: 0 20px 60px #ff69b4, 0 0 90px #ffe6eb; }
+}
+
+/* Optional: Add a glowing heart behind the letter for extra romance */
+.opened .letter:after {
+  content: "💖";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 80px;
+  opacity: 0.18;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+  animation: heartPulse 2s infinite;
+}
+
+@keyframes heartPulse {
+  0%, 100% { opacity: 0.18; transform: translate(-50%, -50%) scale(1);}
+  50% { opacity: 0.28; transform: translate(-50%, -50%) scale(1.12);}
+}
+
+    .opened .envelope-shadow {
+      opacity: 0.5;
+      width: 370px;
+    }
+
+    .celebration {
+      text-align: center;
+      font-size: 28px;
+      color: #c2185b;
+      margin-top: 30px;
+      animation: fadeIn 1s ease;
+      display: none;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .confetti, .balloon, .butterfly, .flower, .ribbon, .heart {
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .close-letter {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: #ffe6eb;
+  border: none;
+  color: #c2185b;
+  font-size: 28px;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(233,30,99,0.08);
+  z-index: 10;
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+}
+.close-letter:hover, .close-letter:focus {
+  background: #ffb6c1;
+  transform: scale(1.15);
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .close-letter {
+    top: 8px;
+    right: 8px;
+    width: 38px;
+    height: 38px;
+    font-size: 22px;
+  }
+}
+
+    .balloon {
+      width: 30px;
+      height: 40px;
+      background: linear-gradient(135deg, #f48fb1, #ec407a);
+      border-radius: 50% 50% 40% 40%;
+      animation: floatUp 6s ease-in infinite;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+
+    .balloon:after {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 20px;
+      background: rgba(0,0,0,0.2);
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .butterfly {
+      width: 30px;
+      height: 30px;
+      background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center;
+      background-size: contain;
+      animation: flutter 8s infinite;
+      filter: hue-rotate(300deg);
+    }
+
+    .flower {
+      width: 40px;
+      height: 40px;
+      background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center;
+      background-size: contain;
+      filter: hue-rotate(30deg);
+      animation: spin 10s linear infinite;
+    }
+
+    .ribbon {
+      width: 50px;
+      height: 50px;
+      background: url('https://cdn-icons-png.flaticon.com/512/3421/3421826.png') no-repeat center;
+      background-size: contain;
+      z-index: 1;
+      animation: sway 5s ease-in-out infinite;
+    }
+
+    .heart {
+      width: 20px;
+      height: 20px;
+      background: #e91e63;
+      transform: rotate(45deg);
+      position: absolute;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0.8;
+    }
+
+    .heart:before, .heart:after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: #e91e63;
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .heart:before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart:after {
+      top: 0;
+      left: -10px;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0); opacity: 1; }
+      50% { transform: translateY(-60vh) rotate(10deg); }
+      100% { transform: translateY(-120vh) rotate(-10deg); opacity: 0; }
+    }
+
+    @keyframes flutter {
+      0% { transform: translateX(0) translateY(0) rotate(0); }
+      25% { transform: translateX(40px) translateY(-30px) rotate(45deg); }
+      50% { transform: translateX(0) translateY(-60px) rotate(0); }
+      75% { transform: translateX(-40px) translateY(-30px) rotate(-45deg); }
+      100% { transform: translateX(0) translateY(0) rotate(0); }
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes sway {
+      0% { transform: rotate(0); }
+      50% { transform: rotate(15deg); }
+      100% { transform: rotate(0); }
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(45deg); }
+      50% { transform: translateY(-40px) rotate(45deg); }
+      100% { transform: translateY(0) rotate(45deg); }
+    }
+
+    .bg-hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    .signature {
+      font-family: 'Dancing Script', cursive;
+      font-size: 24px;
+      font-weight: bold;
+      color: #c2185b;
+    }
+
+    .ink-splatter {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJyZ2JhKDE5NCwgMjQsIDkxLCAwLjEpIiBkPSJNNTAsMTBjMTAsMCwyMCw1LDI1LDE1YzUsMTAsNSwyMCwwLDMwYy01LDEwLTE1LDE1LTI1LDE1Yy0xMCwwLTIwLTUtMjUtMTVjLTUtMTAtNS0yMCwwLTMwQzMwLDE1LDQwLDEwLDUwLDEweiI+PC9wYXRoPjwvc3ZnPg==');
+      background-size: contain;
+      opacity: 0.5;
+      z-index: -1;
+    }
+
+    /* New styles for clue system */
+    .clue-button {
+      background: linear-gradient(to right, #9c27b0, #673ab7);
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .clue-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.7);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .clue-content {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 500px;
+      width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      position: relative;
+      animation: modalFadeIn 0.5s ease;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      color: #c2185b;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .close-modal:hover {
+      transform: scale(1.2);
+    }
+
+    .question-container {
+      margin-top: 20px;
+    }
+
+    .question {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #c2185b;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .option {
+      padding: 10px 15px;
+      background: #f8f8f8;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .option:hover {
+      background: #ffe6eb;
+      transform: translateX(5px);
+    }
+
+    .option.selected {
+      background: #ffb6c1;
+      color: #c2185b;
+      font-weight: bold;
+    }
+
+    .next-question {
+      margin-top: 20px;
+      background: linear-gradient(to right, #e91e63, #c2185b);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: none;
+    }
+
+    .result-container {
+      margin-top: 20px;
+      display: none;
+      text-align: center;
+    }
+
+    .result-message {
+      font-size: 18px;
+      color: #c2185b;
+      margin-bottom: 15px;
+    }
+    
+.envelope-heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 54px;
+  z-index: 4;
+  pointer-events: none;
+  transition: opacity 0.4s;
+  opacity: 1;
+}
+.opened .envelope-heart {
+  opacity: 0;
+}
+
+
+    .password-hint {
+      font-size: 20px;
+      color: #c2185b;
+      font-weight: bold;
+      padding: 10px;
+      background: #ffe6eb;
+      border-radius: 8px;
+      margin-top: 15px;
+      display: none;
+    }
+
+    .attempts-counter {
+      font-size: 14px;
+      color: #888;
+      margin-top: 5px;
+      text-align: center;
+    }
+
+    /* Letter animation */
+    @keyframes letterFloat {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-5px) rotate(1deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    .opened .letter {
+      animation: letterFloat 3s ease-in-out infinite;
+    }
+
+    
+    @media (max-width: 600px) {
+      .container {
+        max-width: 100vw;
+        padding: 8px 0 0 0;
+        margin: 0;
+      }
+      h1 {
+        font-size: 20px;
+        margin-top: 12px;
+        padding: 0 8px;
+      }
+      .input-area {
+        padding: 10px 4px;
+        border-radius: 10px;
+        margin-top: 10px;
+      }
+      input {
+        width: 120px;
+        font-size: 14px;
+        padding: 10px 8px;
+      }
+      button, .clue-button {
+        font-size: 13px;
+        padding: 10px 12px;
+        margin-left: 4px;
+      }
+      .envelope-wrapper {
+        margin-top: 40px;
+        padding-bottom: 10px;
+      }
+      .envelope {
+        width: 90vw;
+        max-width: 320px;
+        height: 160px;
+      }
+      .flap {
+        height: 70px;
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px;
+      }
+      .letter {
+        padding: 10px;
+        font-size: 14px;
+        min-height: 180px;
+        border-radius: 8px;
+      }
+      .close-letter {
+        top: 4px;
+        right: 4px;
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+      }
+      .celebration {
+        font-size: 18px;
+        padding: 8px;
+        margin-top: 16px;
+      }
+      .clue-content {
+        padding: 12px;
+        border-radius: 10px;
+        max-width: 96vw;
+      }
+      .question {
+        font-size: 15px;
+      }
+      .option {
+        font-size: 13px;
+        padding: 8px 10px;
+      }
+      .next-question {
+        font-size: 13px;
+        padding: 8px 14px;
+      }
+      .result-message, .password-hint {
+        font-size: 15px;
+        padding: 6px;
+      }
+      .attempts-counter {
+        font-size: 12px;
+      }
+      .envelope-heart {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-hearts" id="bgHearts"></div>
+  <audio id="bgMusic" src="https://www.youtube.com/watch?v=3T6XtIjcl2o" loop preload="auto"></audio>
+  <button id="musicToggle" title="Toggle Music" style="
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff69b4;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 999;
+">
+  🎵
+</button>
+  <div id="musicMessage" style="display:none;text-align:center;padding:10px;margin-top:10px;color:#c2185b;font-size:14px;">💕 Click anywhere to enable background music 💕</div>
+
+  <div style="display: flex; justify-content: center; margin-top: 20px;">
+    <iframe width="300" height="60" src="https://www.youtube.com/embed/3T6XtIjcl2o?autoplay=0" title="YouTube music" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <div class="container">
+    <h1>💌 A Special Message Awaits You 💌</h1>
+
+    <div class="input-area">
+      <input type="password" id="pass" placeholder="Guess the magic word...">
+      <button onclick="unlock()">Open</button>
+      <div class="message" id="msg"></div>
+      <div class="attempts-counter" id="attempts">Attempts: 0</div>
+      <button class="clue-button" onclick="showClueSystem()">Need a Clue?</button>
+    </div>
+
+    <div class="envelope-wrapper">
+      <div class="envelope" id="envelope">
+        <div class="flap"></div>
+        <div class="envelope-heart">💖</div>
+        <div class="letter" id="letter">
+          <button class="close-letter" onclick="closeEnvelope()" title="Close" aria-label="Close the letter">&times;</button>
+          <div class="ink-splatter" style="top: 10px; right: 20px;"></div>
+          <div class="ink-splatter" style="bottom: 30px; left: 15px;"></div>
+          <div id="letterText" style="min-height: 300px;">
+            <h2>My Dearest LANA,</h2>
+            <p>
+              I spend my days writing code, solving problems, and building digital worlds…  
+              But nothing I've ever built matters more than the dream of a life with you.
+            </p>
+            <p>
+              You are the calm in my chaos, the smile in my silence, and the reason my heart feels full even on the hardest days.
+            </p>
+            <p>
+              I may speak in code, but my love for you is the clearest thing I've ever known.
+              You don’t need to understand the languages I use — just know that every heartbeat I have, every late-night I stay up working… it's all for us.
+            </p>
+            <p>
+              I didn’t just fall for your beauty — I fell for your soul, your light, your laughter, and the way you make everything feel like home.
+            </p>
+            <p>
+              So here I am, not behind a screen, but with an open heart… asking you the most important question of my life.
+            </p>
+            <p style="text-align: center; font-size: 24px; margin: 30px 0;">
+              💍 Will you be my ......?
+            </p>
+            <p style="text-align: right;">
+              Yours completely,<br>
+              <span class="signature">Believe 💖</span>
+            </p>
+          </div>
+          
+        </div>
+        <div class="envelope-shadow"></div>
+      </div>
+    </div>
+
+    <div class="celebration" id="celebrate">🎉 YESSS! You unlocked my heart 💖</div>
+  </div>
+
+  <!-- Clue System Modal -->
+  <div class="clue-modal" id="clueModal">
+    <div class="clue-content">
+      <span class="close-modal" onclick="closeClueModal()">&times;</span>
+      <h2 style="color: #c2185b; text-align: center;">Let's See How Well You Know Me</h2>
+      <p style="text-align: center;">Answer these questions about us to get a hint for the secret code</p>
+      
+      <div class="question-container" id="questionContainer">
+        <!-- Questions will be inserted here by JavaScript -->
+      </div>
+      
+      <button class="next-question" id="nextQuestion" onclick="nextQuestion()">Next Question</button>
+      
+      <div class="result-container" id="resultContainer">
+        <div class="result-message" id="resultMessage"></div>
+        <div class="password-hint" id="passwordHint"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dynamic decorations -->
+  <script>
+    // Create background hearts
+    function createBackgroundHearts() {
+      const container = document.getElementById('bgHearts');
+      for (let i = 0; i < 30; i++) {
+        const size = Math.random() * 20 + 10;
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.width = size + 'px';
+        heart.style.height = size + 'px';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = Math.random() * 100 + 'vh';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+        heart.style.opacity = Math.random() * 0.3 + 0.1;
+        container.appendChild(heart);
+      }
+    }
+
+    createBackgroundHearts();
+
+    // Track attempts
+    let attempts = 0;
+    let lastAttempt = "";
+    let wrongAttempt = false;
+    const attemptsElement = document.getElementById("attempts");
+
+    function unlock() {
+  const input = document.getElementById("pass").value.trim().toLowerCase();
+  const correct = "i love you"; 
+
+  if (input !== lastAttempt) {
+    attempts++;
+    attemptsElement.textContent = `Attempts: ${attempts}`;
+    lastAttempt = input;
+  }
+
+  if (input === correct) {
+    document.getElementById("envelope").classList.add("opened");
+    document.getElementById("msg").textContent = "";
+    document.getElementById("msg").classList.remove("show", "error");
+    document.getElementById("celebrate").style.display = "block";
+    launchDecorations();
+    launchFloatingHearts();
+
+    // Envelope movement
+    const envelope = document.getElementById("envelope");
+    envelope.style.transform = "translateY(-10px) rotateY(5deg)";
+    setTimeout(() => {
+      envelope.style.transform = "translateY(0) rotateY(0)";
+    }, 300);
+  } else {
+    // Show the message instantly
+    const msgElement = document.getElementById("msg");
+    let message;
+    if (attempts <= 2) {
+      message = "That's not it yet, my sunshine 🌼";
+    } else if (attempts <= 3) {
+      message = "Keep trying! It's something special to us 💕"; 
+    }   
+      else if (attempts <= 4) {
+      message = "Keep trying! It's something special to us 💕";
+      
+    } 
+    else if (attempts <= 5) {
+      message = "Hint: It's a complete sentence of 3 that means a lot to me 💫";
+  
+      
+      
+    } else {
+      message = "Need a clue? Click the button below! 💌";
+    }
+    msgElement.textContent = message;
+    msgElement.classList.add("show", "error");
+    // Shake animation for input area
+    const inputArea = document.querySelector(".input-area");
+    inputArea.classList.add("shake");
+    setTimeout(() => {
+      inputArea.classList.remove("shake");
+    }, 500);
+  }
+}
+
+document.getElementById("pass").addEventListener("input", function() {
+  // Instantly hide the error message when user starts typing
+  const msgElement = document.getElementById("msg");
+  msgElement.classList.remove("show", "error");
+});
+
+    // Keyboard support
+    document.getElementById("pass").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        unlock();
+      }
+    });
+
+    window.onload = function() {
+      document.getElementById("pass").focus();
+    };
+
+    // Confetti and decorations (unchanged)
+    function launchDecorations() {
+      // Create confetti effect
+      for (let i = 0; i < 100; i++) {
+        setTimeout(() => {
+          const confetti = document.createElement("div");
+          confetti.className = "confetti";
+          confetti.style.left = Math.random() * window.innerWidth + "px";
+          confetti.style.top = -20 + "px";
+          confetti.style.backgroundColor = getRandomColor();
+          confetti.style.width = Math.random() * 10 + 5 + "px";
+          confetti.style.height = Math.random() * 10 + 5 + "px";
+          confetti.style.opacity = Math.random() + 0.5;
+          confetti.style.animation = `floatDown ${Math.random() * 3 + 2}s linear forwards`;
+          document.body.appendChild(confetti);
+          
+          setTimeout(() => confetti.remove(), 5000);
+        }, i * 50);
+      }
+      function closeEnvelope() {
+      const envelope = document.getElementById("envelope");
+      envelope.classList.remove("opened");
+      document.getElementById("celebrate").style.display = "none";
+      // Optionally, scroll to top and focus input for better UX on mobile
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      document.getElementById("pass").focus();
+    }
+
+
+      // Add keyframe animation for confetti
+      const style = document.createElement('style');
+      style.innerHTML = `
+        @keyframes floatDown {
+          0% { transform: translateY(0) rotate(0); }
+          100% { transform: translateY(100vh) rotate(360deg); }
+        }
+        
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(-5px); }
+          50% { transform: translateX(5px); }
+          75% { transform: translateX(-5px); }
+        }
+      `;
+      document.head.appendChild(style);
+
+      for (let i = 0; i < 20; i++) {
+        create("balloon", Math.random() * window.innerWidth);
+        create("butterfly", Math.random() * window.innerWidth);
+        create("flower", Math.random() * window.innerWidth);
+      }
+
+      create("ribbon", 20, 20);
+      create("ribbon", window.innerWidth - 70, 20);
+      launchFloatingHearts();
+    }
+
+    function launchFloatingHearts() {
+      for (let i = 0; i < 20; i++) {
+        setTimeout(() => {
+          const heart = document.createElement('div');
+          heart.className = 'heart';
+          heart.style.left = Math.random() * 90 + 'vw';
+          heart.style.top = '80vh';
+          heart.style.position = 'fixed';
+          heart.style.zIndex = 150;
+          heart.style.opacity = 0.7;
+          heart.style.animation = `floatUp ${Math.random() * 3 + 3}s linear forwards`;
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 6000);
+        }, i * 150);
+      }
+    }
+
+    function create(type, left, top = Math.random() * window.innerHeight) {
+      const el = document.createElement("div");
+      el.className = type;
+      el.style.left = left + "px";
+      el.style.top = top + "px";
+      
+      // Add some randomness to animations
+      if (type === "balloon") {
+        el.style.animationDuration = (Math.random() * 3 + 5) + "s";
+        el.style.backgroundColor = getRandomColor();
+      } else if (type === "butterfly") {
+        el.style.animationDuration = (Math.random() * 4 + 6) + "s";
+        el.style.filter = `hue-rotate(${Math.random() * 360}deg)`;
+      }
+      
+      document.body.appendChild(el);
+      if (type !== "ribbon") {
+        setTimeout(() => el.remove(), 10000);
+      }
+    }
+
+    function getRandomColor() {
+      const colors = [
+        "#e91e63", "#f06292", "#ec407a", "#d81b60", 
+        "#c2185b", "#ad1457", "#880e4f", "#ff80ab", 
+        "#ff4081", "#f50057", "#c51162"
+      ];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    // Add keyboard support
+    document.getElementById("pass").addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        unlock();
+      }
+    });
+
+    // Focus on input when page loads
+    window.onload = function() {
+      document.getElementById("pass").focus();
+    };
+
+    // Clue System
+    const questions = [
+  {
+    q: "What is my favorite thing about you?",
+    options: [
+      "Your smile",
+      "Your kindness",
+      "Your intelligence",
+      "All of the above"
+    ],
+    love: [3]
+  },
+  {
+    q: "If we could travel anywhere together, where would you want to go?",
+    options: [
+      "Paris, the city of love",
+      "A quiet beach",
+      "A mountain adventure",
+      "Anywhere, as long as it's with you"
+    ],
+    love: [3]
+  },
+  {
+    q: "How do you feel when you think of us?",
+    options: [
+      "Happy and excited",
+      "Safe and loved",
+      "Like I'm home",
+      "All of the above"
+    ],
+    love: [3]
+  },
+  {
+    q: "What would be the perfect date night?",
+    options: [
+      "A candlelit dinner",
+      "Stargazing together",
+      "Watching a movie and cuddling",
+      "All of them, as long as I'm with you"
+    ],
+    love: [3]
+  },
+  {
+    q: "Which line sounds most like something I'd say?",
+    options: [
+      "You're my dream come true.",
+      "You’re the reason I smile every day.",
+      "You complete me.",
+      "You're the love I never saw coming but always hoped for."
+    ],
+    love: [3]
+  },
+  {
+    q: "What do I see when I look into your eyes?",
+    options: [
+      "A beautiful soul",
+      "My forever person",
+      "Endless love",
+      "All of the above"
+    ],
+    love: [3]
+  },
+  {
+    q: "If our love was a song, what would it be?",
+    options: [
+      "A sweet acoustic melody",
+      "A passionate ballad",
+      "A soft piano love song",
+      "A timeless classic, forever in tune"
+    ],
+    love: [3]
+  },
+  {
+    q: "What reminds me of you the most?",
+    options: [
+      "Sunsets",
+      "Warm hugs",
+      "The sound of laughter",
+      "Everything beautiful in this world"
+    ],
+    love: [3]
+  }
+];
+
+    let currentQ = 0;
+    let loveScore = 0;
+
+    function showClueSystem() {
+      document.getElementById("clueModal").style.display = "flex";
+      currentQ = 0;
+      loveScore = 0;
+      document.getElementById("resultContainer").style.display = "none";
+      document.getElementById("passwordHint").style.display = "none";
+      showQuestion();
+    }
+
+    function closeClueModal() {
+      document.getElementById("clueModal").style.display = "none";
+    }
+
+    function showQuestion() {
+      const q = questions[currentQ];
+      const container = document.getElementById("questionContainer");
+      container.innerHTML = `<div class="question">${q.q}</div>
+        <div class="options">
+          ${q.options.map((opt, i) => `<div class="option" onclick="selectOption(${i})">${opt}</div>`).join("")}
+        </div>`;
+      document.getElementById("nextQuestion").style.display = "none";
+    }
+
+    window.selectOption = function(idx) {
+      const q = questions[currentQ];
+      const options = document.querySelectorAll(".option");
+      options.forEach((el, i) => {
+        el.classList.toggle("selected", i === idx);
+      });
+      if (q.love.includes(idx)) loveScore++;
+      document.getElementById("nextQuestion").style.display = "inline-block";
+    };
+
+    function nextQuestion() {
+      currentQ++;
+      if (currentQ < questions.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      document.getElementById("questionContainer").innerHTML = "";
+      document.getElementById("nextQuestion").style.display = "none";
+      document.getElementById("resultContainer").style.display = "block";
+      if (loveScore >= 2) {
+        document.getElementById("resultMessage").textContent = "You really know me and love me! Here's your clue:";
+        document.getElementById("passwordHint").textContent = "The secret code is a complete word of 3, i love to hear from u 💖";
+        document.getElementById("passwordHint").style.display = "block";
+      } else {
+        document.getElementById("resultMessage").textContent = "Hmm, maybe try again and show me more love! 💌";
+        document.getElementById("passwordHint").style.display = "none";
+      }
+    }
+
+    window.nextQuestion = nextQuestion;
+    window.showClueSystem = showClueSystem;
+    window.closeClueModal = closeClueModal;
+
+    // Add ESC key support to close envelope or clue modal
+    document.addEventListener('keydown', function(event) {
+      // ESC closes the letter if open
+      if (event.key === "Escape") {
+        const envelope = document.getElementById("envelope");
+        if (envelope.classList.contains("opened")) {
+          closeEnvelope();
+        }
+        // Also close clue modal if open
+        const clueModal = document.getElementById("clueModal");
+        if (clueModal && clueModal.style.display === "flex") {
+          closeClueModal();
+        }
+      }
+    });
+  </script>
+  <script>
+    // Music player logic
+    document.addEventListener('DOMContentLoaded', function() {
+      const bgMusic = document.getElementById("bgMusic");
+      const musicToggle = document.getElementById("musicToggle");
+      const musicMessage = document.getElementById("musicMessage");
+      let isPlaying = false;
+
+      // Set volume to a comfortable level
+      bgMusic.volume = 0.5;
+
+      function playMusic() {
+        bgMusic.play().then(() => {
+          isPlaying = true;
+          musicToggle.innerHTML = '⏸️';
+        }).catch(err => {
+          console.error("Music play error:", err);
+        });
+      }
+
+      function pauseMusic() {
+        bgMusic.pause();
+        isPlaying = false;
+        musicToggle.innerHTML = '🎵';
+      }
+
+      musicToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (isPlaying) {
+          pauseMusic();
+        } else {
+          playMusic();
+        }
+      });
+
+      // Show the message until user interacts
+      musicMessage.style.display = '';
+
+      function enableMusicOnInteraction() {
+        playMusic();
+        if (musicMessage.parentNode) {
+          musicMessage.parentNode.removeChild(musicMessage);
+        }
+        document.removeEventListener('click', enableMusicOnInteraction);
+        document.removeEventListener('keydown', enableMusicOnInteraction);
+        document.removeEventListener('touchstart', enableMusicOnInteraction);
+      }
+      document.addEventListener('click', enableMusicOnInteraction);
+      document.addEventListener('keydown', enableMusicOnInteraction);
+      document.addEventListener('touchstart', enableMusicOnInteraction);
+
+      bgMusic.addEventListener('ended', function() {
+        isPlaying = false;
+        musicToggle.innerHTML = '🎵';
+      });
+    });
+  </script>
+  <style>
+    /* Add this to your CSS for the letter sliding out effect */
+    .opened .letter {
+      opacity: 1 !important;
+      transform: translateY(-220px) scale(1.05) !important;
+      transition: transform 1.5s cubic-bezier(.68,-0.55,.27,1.55), opacity 1.5s !important;
+      animation: none !important;
+    }
+  </style>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </
